@@ -127,7 +127,7 @@ function showDisconnectedState() {
 function showConnectedState() {
     console.log("showConnectedState");
     document.querySelector("#connectMessage").style.display = "none";
-    document.querySelector("#connectedMessage").setAttribute("style", divStyle);
+    document.querySelector("#connectedMessage").setAttribute("style", "display:flex;margin-top:15px;justify-content space-around;align-items:center;-webkit-box-align:center;");
     document.querySelector("#addressTextBox").innerHTML = displayAddress;
     document.querySelector("#remainingCounts").innerHTML = `${minted} / ${mintable} Remaining`;
 }

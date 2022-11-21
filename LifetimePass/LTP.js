@@ -346,9 +346,7 @@ async function onAllowListMint() {
         })
         .on('receipt', async function (receipt) {
             console.log("Receipt " + receipt.toString());
-            setTimeout(function () {
-                hideTransactionProcessing();
-            }, 5000);
+            hideTransactionProcessing();
             justMinted = false;
             await fetchAccountData(provider);
         })

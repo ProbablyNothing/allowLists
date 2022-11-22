@@ -1,6 +1,6 @@
 'use strict'
 // NOTE: NEED TO BE SET FOR CORRECT CONDITIONS!!!
-let contactAddress = '0x1259acEc29a6FAfD6f45b768911A28C936E6Cb8e';
+let contactAddress = '0xA4Ca8DbFD6F40E5A5dC8F5D664100f594779d3BA';
 let correctChain = 5;
 let blockExplorerBaseURL = "https://goerli.etherscan.io/tx/";
 let openseaBaseUrl = "https://testnets.opensea.io/account";
@@ -202,24 +202,24 @@ async function getVarsFromContract() {
     await lifetimePass.methods.totalSupply().call({ from: selectedAccount })
         .then(function (result) {
             minted = result;
-            console.log("minted: " + result);
+            console.log("minted: " + minted);
         });
     await lifetimePass.methods.maxSupply().call({ from: selectedAccount })
         .then(function (result) {
             mintable = parseInt(result);
-            console.log("mintable: " + result);
+            console.log("maxSupply: " + mintable);
         });
 
     await lifetimePass.methods.canAllowListMint(selectedAccount, getProof(selectedAccount)).call({ from: selectedAccount })
         .then(function (result) {
             addressCanClaim = result;
-            console.log("addressCanClaim: " + addressCanClaim);
+            console.log("canAllowListMint: " + addressCanClaim);
         });
 
     await lifetimePass.methods.mintOpen().call({ from: selectedAccount })
         .then(function (result) {
             canMint = result;
-            console.log("addressCanMint: " + addressCanClaim);
+            console.log("mint open: " + canMint);
         });
 
     await lifetimePass.methods.mintPrice().call({ from: selectedAccount })

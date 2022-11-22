@@ -4,7 +4,6 @@ let contactAddress = '0xA4Ca8DbFD6F40E5A5dC8F5D664100f594779d3BA';
 let correctChain = 5;
 let blockExplorerBaseURL = "https://goerli.etherscan.io/tx/";
 let openseaBaseUrl = "https://testnets.opensea.io/account";
-let metaLibraryUrl = "https://bookcoin.activehosted.com/f/5";
 
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;
@@ -89,7 +88,7 @@ async function fetchAccountData() {
     }
     // collection is minted out
     else if (minted >= mintable) {
-        showAllBooksMinted()
+        showAllPassesMinted()
     }
     // user can claim
     else if (addressCanClaim) {
@@ -161,11 +160,11 @@ function showMintButton(show) {
     if (show) {
         document.querySelector("#claim").setAttribute("style", "display:none;");
     }
-    document.querySelector("#mintDiv").setAttribute("style", show ? divStyle : "display:none;");
+    document.querySelector("#mintDiv").setAttribute("style", show && !openseashowing ? divStyle : "display:none;");
 }
 
-function showAllBooksMinted() {
-    console.log("showAllBooksMinted");
+function showAllPassesMinted() {
+    console.log("showAllPassesMinted");
     document.querySelector("#mintDiv").setAttribute("style", divStyle);
 }
 
@@ -183,6 +182,8 @@ function showTransactionProcessing(txMessage, txHash) {
     document.getElementById("openseaLink").setAttribute("href", "");
 }
 
+let openseashowing = false;
+
 function hideTransactionProcessing() {
     console.log('hideTransactionProcessing');
     document.getElementById("txInfoMessage").innerHTML = "";
@@ -191,9 +192,14 @@ function hideTransactionProcessing() {
     document.getElementById("transactionMessage").style.display = "none";
     showMintButton(false);
     showAllowListButton(false);
+    openseashowing = true;
     document.querySelector("#openseaMessage").setAttribute("style", divStyle);
     document.getElementById("openseaLink").setAttribute("href", openseaBaseUrl);
-    setTimeout(() => { document.querySelector("#openseaMessage").style.display = "none"; fetchAccountData(); }, 10000);
+    setTimeout(() => {
+        document.querySelector("#openseaMessage").style.display = "none"; fetchAccountData();
+        openseashowing = false;
+        if (showMintAfterOpenSea) { showMintButton(); }
+    }, 10000);
 }
 
 

@@ -128,7 +128,7 @@ function showConnectedState() {
     document.querySelector("#connectMessage").style.display = "none";
     document.querySelector("#connectedMessage").setAttribute("style", "display:flex;margin-top:15px;justify-content space-around;align-items:center;-webkit-box-align:center;");
     document.querySelector("#addressTextBox").innerHTML = displayAddress;
-    document.querySelector("#remainingCounts").innerHTML = `${minted} / ${mintable} Remaining`;
+    document.querySelector("#remainingCounts").innerHTML = `${minted} / ${mintable} MINTED`;
 }
 
 function showSwitchNetwork(show) {
@@ -136,7 +136,6 @@ function showSwitchNetwork(show) {
     document.querySelector("#connectMessage").style.display = "none";
     document.querySelector("#mintDiv").style.display = "none";
     document.querySelector("#switchNetwork").setAttribute("style", show ? divStyle : "display:none");
-    //if (show) { showAllowListButton(false) };
 }
 
 function showCantMintReasonOrResult(txMessage) {

@@ -1,6 +1,6 @@
 'use strict'
 // NOTE: NEED TO BE SET FOR CORRECT CONDITIONS!!!
-let contactAddress = '0xA4Ca8DbFD6F40E5A5dC8F5D664100f594779d3BA';
+let contactAddress = '0xA3cB3f55804Ec75fc23178D6D017616f4240B753';
 let correctChain = 5;
 let blockExplorerBaseURL = "https://goerli.etherscan.io/tx/";
 let openseaBaseUrl = "https://testnets.opensea.io/account";
@@ -151,6 +151,7 @@ function showAllowListButton(show) {
     console.log("showClaimButton: " + show.toString());
     if (show) {
         document.querySelector("#mintDiv").setAttribute("style", show ? "display:none;" : divStyle);
+        document.querySelector("#priceDiv").innerHTML = `PRICE PER NFT: ${ethers.utils.formatEther(allowListPrice, 'ether')} ETH`
     }
     document.querySelector("#claim").setAttribute("style", show ? divStyle : "display:none;");
 }
@@ -159,6 +160,7 @@ function showMintButton(show) {
     console.log("showMintButton: " + show.toString());
     if (show) {
         document.querySelector("#claim").setAttribute("style", "display:none;");
+        document.querySelector("#priceDiv").innerHTML = `PRICE PER NFT: ${ethers.utils.formatEther(mintPrice, 'ether')} ETH`
     }
     document.querySelector("#mintDiv").setAttribute("style", show && !openseashowing ? divStyle : "display:none;");
 }
@@ -198,7 +200,7 @@ function hideTransactionProcessing() {
     setTimeout(() => {
         document.querySelector("#openseaMessage").style.display = "none"; fetchAccountData();
         openseashowing = false;
-        if (showMintAfterOpenSea) { showMintButton(); }
+        showMintButton(true);
     }, 10000);
 }
 

@@ -197,6 +197,7 @@ function hideTransactionProcessing() {
     openseashowing = true;
     document.querySelector("#openseaMessage").setAttribute("style", divStyle);
     document.getElementById("openseaLink").setAttribute("href", openseaBaseUrl);
+    document.getElementById("openseaLink").setAttribute("target", "_blank");
     setTimeout(() => {
         document.querySelector("#openseaMessage").style.display = "none"; fetchAccountData();
         openseashowing = false;

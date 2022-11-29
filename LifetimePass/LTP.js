@@ -1,9 +1,9 @@
 'use strict'
 // NOTE: NEED TO BE SET FOR CORRECT CONDITIONS!!!
-let contactAddress = '0xA3cB3f55804Ec75fc23178D6D017616f4240B753';
-let correctChain = 5;
-let blockExplorerBaseURL = "https://goerli.etherscan.io/tx/";
-let openseaBaseUrl = "https://testnets.opensea.io/account";
+let contactAddress = '0x2998C6b5A1eeed75f2EFB43E35f5d84A08A3A833';
+let correctChain = 1;
+let blockExplorerBaseURL = "https://etherscan.io/tx/";
+let openseaBaseUrl = "https://opensea.io/account";
 
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;

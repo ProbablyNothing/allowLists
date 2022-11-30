@@ -1,6 +1,5 @@
 {
     "allowlist": [
-        "0x51AaE7357c8baD10DB3532e9AC597efFA5C3820f",
         "0x11d18ea67e081aa239430093808b2721b87ca733",
         "0x4a5c16863145dec79afb639848d6187ee90f35e3",
         "0x27dc32e2a52a7c235a087bafb8d6913236b3a373",
@@ -588,6 +587,7 @@
         "0xfde25d8e5e1e3b03f4d0b1d5c793e3916fd85bc4",
         "0xfe16c0524a51d2e579419fd25b88e0d3ac2b80e4",
         "0xff5a2ee5ada1ded9e8ca5a6c2c703c4ebe8eb89b",
-        "0xffff4ff9aed332224e46f532b31264ad5f2a9f21"
+        "0xffff4ff9aed332224e46f532b31264ad5f2a9f21",
+        "0x5e720FcD48Dbc0d06513F4Cf919D4bC40116c825"
     ]
 }

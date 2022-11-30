@@ -1,9 +1,9 @@
 'use strict'
 // NOTE: NEED TO BE SET FOR CORRECT CONDITIONS!!!
-let contactAddress = '0x2998C6b5A1eeed75f2EFB43E35f5d84A08A3A833';
-let correctChain = 1;
-let blockExplorerBaseURL = "https://etherscan.io/tx/";
-let openseaBaseUrl = "https://opensea.io/account";
+let contactAddress = '0xb955D3f950191e1F56De9d8Ce20e5D6927b0652B';
+let correctChain = 5;
+let blockExplorerBaseURL = "https://goerli.etherscan.io/tx/";
+let openseaBaseUrl = "https://testnets.opensea.io/account";
 
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;
@@ -68,7 +68,7 @@ function getProof(address) {
 async function fetchAccountData() {
     console.log("fetchAccountData");
     accounts = await web3.eth.getAccounts();
-    selectedAccount = accounts[0];
+    selectedAccount = accounts[0].toLowerCase();
     ensAddress = await ethersProvider.lookupAddress(selectedAccount);
     displayAddress = ensAddress === null ? selectedAccount.slice(0, 6) + "..." + selectedAccount.slice(38, 42) : ensAddress;
     const rowResolvers = accounts.map(async (address) => {
@@ -389,7 +389,7 @@ window.addEventListener('load', async () => {
 // get the contract ABI
 $.getJSON(abiURL(contactAddress), function (result) {
     console.log("#get contract abi");
-    //console.log(abiURL(contactAddress))
+    console.log(abiURL(contactAddress))
     //console.log('get LP ABI', result);
     abi = JSON.parse(result.result);
     console.log(abi);
@@ -397,7 +397,7 @@ $.getJSON(abiURL(contactAddress), function (result) {
     console.log('LP ABI retrieved!');
 });
 
-$.getJSON("https://raw.githubusercontent.com/ProbablyNothing/publicFiles/7842670649103b9e70ef3b234bb7eccfc5a50eca/LifetimePass/allowList.json", function (result) {
+$.getJSON("https://raw.githubusercontent.com/ProbablyNothing/publicFiles/fb494f6272f75b5242d5944aaa897a95d965bd7a/LifetimePass/allowListTestNet.json", function (result) {
     console.log("#get claim list");
     allowList = result.allowlist;
     console.log(allowList);

@@ -339,7 +339,7 @@ async function onAllowListMint() {
     console.log("onAllowListMint");
     justMinted = true;
     showAllowListButton(false);
-    let proof = getProof(selectedAccount);
+    let proof = getProof(selectedAccount.lowerCase());
 
     lifetimePass.methods.allowListMint(proof).send({
         from: selectedAccount,

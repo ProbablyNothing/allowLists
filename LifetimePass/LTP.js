@@ -173,17 +173,19 @@ function showAllPassesMinted() {
 }
 
 function showTransactionProcessing(txMessage, txHash) {
-    console.log('showTransactionProcessing');
-    let etherscanLink = blockExplorerBaseURL + txHash;
-    console.log(etherscanLink);
-    showMintButton(false);
-    showAllowListButton(false);
-    document.querySelector("#transactionLinkDiv").style.display = "block";
-    document.querySelector("#transactionMessage").setAttribute("style", divStyle);
-    document.getElementById("txInfoMessage").innerHTML = txMessage;
-    document.getElementById("transactionLink").setAttribute("href", etherscanLink);
-    document.querySelector("#openseaMessage").style.display = "none";
-    document.getElementById("openseaLink").setAttribute("href", "");
+    try {
+        console.log('showTransactionProcessing');
+        let etherscanLink = blockExplorerBaseURL + txHash;
+        console.log(etherscanLink);
+        showMintButton(false);
+        showAllowListButton(false);
+        document.querySelector("#transactionLinkDiv").style.display = "block";
+        document.querySelector("#transactionMessage").setAttribute("style", divStyle);
+        document.getElementById("txInfoMessage").innerHTML = txMessage;
+        document.getElementById("transactionLink").setAttribute("href", etherscanLink);
+        document.querySelector("#openseaMessage").style.display = "none";
+        document.getElementById("openseaLink").setAttribute("href", "");
+    } catch { console.log(error); }
 }
 
 let openseashowing = false;

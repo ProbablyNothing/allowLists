@@ -339,7 +339,10 @@ async function onAllowListMint() {
     console.log("onAllowListMint");
     justMinted = true;
     showAllowListButton(false);
-    let proof = getProof(selectedAccount.lowerCase());
+    let address = web3.utils.toHex(selectedAccount);
+    console.log(`selected account: ${selectedAccount}`);
+    console.log(`normalized account: ${address}`);
+    let proof = getProof(address);
 
     lifetimePass.methods.allowListMint(proof).send({
         from: selectedAccount,

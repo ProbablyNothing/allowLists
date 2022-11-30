@@ -394,7 +394,7 @@ $.getJSON(abiURL(contactAddress), function (result) {
     console.log('LP ABI retrieved!');
 });
 
-$.getJSON("https://raw.githubusercontent.com/ProbablyNothing/publicFiles/cd20ec95effda55d68fa3a048a81673023f7d4f5/LifetimePass/allowList.json", function (result) {
+$.getJSON("https://raw.githubusercontent.com/ProbablyNothing/publicFiles/7842670649103b9e70ef3b234bb7eccfc5a50eca/LifetimePass/allowList.json", function (result) {
     console.log("#get claim list");
     allowList = result.allowlist;
     console.log(allowList);

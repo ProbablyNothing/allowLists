@@ -340,7 +340,7 @@ async function onAllowListMint() {
     justMinted = true;
     showAllowListButton(false);
     console.log(`selected account: ${selectedAccount}`);
-    let address = address.toLowerCase();
+    let address = selectedAccount.toLowerCase();
     console.log(`normalized account: ${address}`);
     let proof = getProof(address);
 

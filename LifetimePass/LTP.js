@@ -148,12 +148,14 @@ function showCantMintReasonOrResult(txMessage) {
 }
 
 function showAllowListButton(show) {
-    console.log("showClaimButton: " + show.toString());
-    if (show) {
-        document.querySelector("#mintDiv").setAttribute("style", show ? "display:none;" : divStyle);
-        document.querySelector("#priceDiv").innerHTML = `PRICE PER NFT: ${ethers.utils.formatEther(allowListPrice, 'ether')} ETH`
-    }
-    document.querySelector("#claim").setAttribute("style", show ? divStyle : "display:none;");
+    try {
+        console.log("showClaimButton: " + show.toString());
+        if (show) {
+            document.querySelector("#mintDiv").setAttribute("style", show ? "display:none;" : divStyle);
+            document.querySelector("#priceDiv").innerHTML = `PRICE PER NFT: ${ethers.utils.formatEther(allowListPrice, 'ether')} ETH`
+        }
+        document.querySelector("#claim").setAttribute("style", show ? divStyle : "display:none;");
+    } catch (error) { console.log(error); }
 }
 
 function showMintButton(show) {

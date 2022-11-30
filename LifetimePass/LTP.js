@@ -1,9 +1,10 @@
 'use strict'
 // NOTE: NEED TO BE SET FOR CORRECT CONDITIONS!!!
-let contactAddress = '0xb955D3f950191e1F56De9d8Ce20e5D6927b0652B';
-let correctChain = 5;
-let blockExplorerBaseURL = "https://goerli.etherscan.io/tx/";
-let openseaBaseUrl = "https://testnets.opensea.io/account";
+let contactAddress = '0x2998C6b5A1eeed75f2EFB43E35f5d84A08A3A833';
+let correctChain = 1;
+let blockExplorerBaseURL = "https://etherscan.io/tx/";
+let openseaBaseUrl = "https://opensea.io/account";
+let allowListURL = "https://raw.githubusercontent.com/ProbablyNothing/publicFiles/47233b785ace2d3d5dbea32658087dded9642d90/LifetimePass/allowList.json";
 
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;
@@ -397,7 +398,7 @@ $.getJSON(abiURL(contactAddress), function (result) {
     console.log('LP ABI retrieved!');
 });
 
-$.getJSON("https://raw.githubusercontent.com/ProbablyNothing/publicFiles/fb494f6272f75b5242d5944aaa897a95d965bd7a/LifetimePass/allowListTestNet.json", function (result) {
+$.getJSON(allowListURL, function (result) {
     console.log("#get claim list");
     allowList = result.allowlist;
     console.log(allowList);

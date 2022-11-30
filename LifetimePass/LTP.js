@@ -69,7 +69,7 @@ function getProof(address) {
 async function fetchAccountData() {
     console.log("fetchAccountData");
     accounts = await web3.eth.getAccounts();
-    selectedAccount = accounts[0].toLowerCase();
+    selectedAccount = accounts[0];
     ensAddress = await ethersProvider.lookupAddress(selectedAccount);
     displayAddress = ensAddress === null ? selectedAccount.slice(0, 6) + "..." + selectedAccount.slice(38, 42) : ensAddress;
     const rowResolvers = accounts.map(async (address) => {
@@ -219,7 +219,7 @@ async function getVarsFromContract() {
             console.log("maxSupply: " + mintable);
         });
 
-    await lifetimePass.methods.canAllowListMint(selectedAccount, getProof(selectedAccount)).call({ from: selectedAccount })
+    await lifetimePass.methods.canAllowListMint(selectedAccount, getProof(selectedAccount.toLowerCase())).call({ from: selectedAccount })
         .then(function (result) {
             addressCanClaim = result;
             console.log("canAllowListMint: " + addressCanClaim);

@@ -4,7 +4,7 @@ let contactAddress = '0x2998C6b5A1eeed75f2EFB43E35f5d84A08A3A833';
 let correctChain = 1;
 let blockExplorerBaseURL = "https://etherscan.io/tx/";
 let openseaBaseUrl = "https://opensea.io/account";
-let allowListURL = "https://raw.githubusercontent.com/ProbablyNothing/publicFiles/6632251093068d3de1100a3e353e9bb7b20f9702/LifetimePass/allowList.json";
+let allowListURL = "https://raw.githubusercontent.com/ProbablyNothing/publicFiles/0349f980b4714f6a36b5e3663c75c0e520a3831b/LifetimePass/allowList.json";
 
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;
